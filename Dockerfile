@@ -16,24 +16,24 @@
 #
 #----------------------------------------------------------
 
-    FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0 as build-hw-go
+FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0 as build-hw-go
 
-    # Install utilities
-    RUN apt update && apt install -y iputils-ping net-tools curl sudo ca-certificates
-    
-    # Install RMr shared library & development header files
-    RUN wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch/rmr_4.7.0_amd64.deb/download.deb && dpkg -i rmr_4.7.0_amd64.deb && rm -rf rmr_4.7.0_amd64.deb
-    RUN wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch/rmr-dev_4.7.0_amd64.deb/download.deb && dpkg -i rmr-dev_4.7.0_amd64.deb && rm -rf rmr-dev_4.7.0_amd64.deb
-    
-    # Install dependencies, compile and test the module
-    RUN mkdir -p /go/src/hw-go
-    COPY . /go/src/hw-go
-    
-    WORKDIR "/go/src/hw-go"
-    
-    ENV GO111MODULE=on GO_ENABLED=0 GOOS=linux
-    
-    RUN go build -a -installsuffix cgo -o hw-go hwApp.go
+# Install utilities
+RUN apt update && apt install -y iputils-ping net-tools curl sudo ca-certificates
+
+# Install RMr shared library & development header files
+RUN wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch/rmr_4.7.0_amd64.deb/download.deb && dpkg -i rmr_4.7.0_amd64.deb && rm -rf rmr_4.7.0_amd64.deb
+RUN wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch/rmr-dev_4.7.0_amd64.deb/download.deb && dpkg -i rmr-dev_4.7.0_amd64.deb && rm -rf rmr-dev_4.7.0_amd64.deb
+
+# Install dependencies, compile and test the module
+RUN mkdir -p /go/src/hw-go
+COPY . /go/src/hw-go
+
+WORKDIR "/go/src/hw-go"
+
+ENV GO111MODULE=on GO_ENABLED=0 GOOS=linux
+
+RUN go build -a -installsuffix cgo -o hw-go hwApp.go
 
 
 # Final deployment container
