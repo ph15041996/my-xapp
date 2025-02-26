@@ -16,7 +16,7 @@
 #
 #----------------------------------------------------------
 
-FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0 as build-hw-go
+FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0 AS build-hw-go
 
 # Install utilities
 RUN apt update && apt install -y iputils-ping net-tools curl sudo ca-certificates
@@ -51,4 +51,4 @@ COPY --from=build-hw-go /usr/local/lib /usr/local/lib
 RUN ldconfig
 
 RUN chmod 755 /hw-go
-CMD /hw-go
+CMD ["/hw-go"]
