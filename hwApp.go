@@ -215,7 +215,7 @@ func (e *HWApp) Consume(msg *xapp.RMRParams) (err error) {
 }
 
 func (e *HWApp) Run() {
-
+	xapp.Logger.Info("In Run func")
 	// set MDC
 	xapp.Logger.SetMdc("HWApp", "0.0.1")
 
