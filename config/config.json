@@ -5,7 +5,7 @@
         {
             "name": "my-xapp",
             "image": {
-              "registry": "dcoker.io",
+              "registry": "docker.io",
               "name": "cs23mtech11015/ric-my-xapp",
               "tag": "1.0.0"
             }

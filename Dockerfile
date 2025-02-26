@@ -39,7 +39,7 @@ RUN go build -a -installsuffix cgo -o hw-go hwApp.go
 # Final deployment container
 FROM ubuntu:18.04
 
-ENV CFG_FILE=config/config-file.json
+ENV CFG_FILE=config/config.json
 ENV RMR_SEED_RT=config/uta_rtg.rt
 
 RUN mkdir /config
