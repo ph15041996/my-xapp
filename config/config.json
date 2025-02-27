@@ -1,13 +1,13 @@
 {
     "xapp_name" : "my-xapp-go",
-    "version" : "1.0.0",
+    "version" : "1.0.1",
     "containers" : [
         {
             "name": "my-xapp-go",
             "image": {
               "registry": "docker.io",
               "name": "cs23mtech11015/my-xapp-go",
-              "tag": "1.0.0"
+              "tag": "1.0.1"
             }
           }
     ],
