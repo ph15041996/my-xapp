@@ -20,7 +20,7 @@ package main
 
 import (
 	"encoding/json"
-
+	"fmt"
 	"gerrit.o-ran-sc.org/r/ric-plt/alarm-go.git/alarm"
 	"gerrit.o-ran-sc.org/r/ric-plt/xapp-frame/pkg/clientmodel"
 	"gerrit.o-ran-sc.org/r/ric-plt/xapp-frame/pkg/xapp"
@@ -241,7 +241,8 @@ func main() {
 			Help: "Total number of RIC Indication message received",
 		},
 	}
-
+	
+	fmt.Print("This is MY xApp") 
 	hw := HWApp{
 		stats: xapp.Metric.RegisterCounterGroup(metrics, "hw_go"), // register counter
 	}
