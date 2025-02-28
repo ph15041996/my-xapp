@@ -60,8 +60,7 @@
             "RIC_SUB_REQ", "A1_POLICY_RESP", "A1_POLICY_QUERY", "RIC_HEALTH_CHECK_RESP"
         ],
         "rxMessages": [
-            "RIC_SUB_RESP",
-            "A1_POLICY_REQ", "RIC_HEALTH_CHECK_REQ"
+            "RIC_SUB_RESP", "A1_POLICY_REQ", "RIC_HEALTH_CHECK_REQ", "RIC_INDICATION"
         ],
     "policies": [1]
     }
